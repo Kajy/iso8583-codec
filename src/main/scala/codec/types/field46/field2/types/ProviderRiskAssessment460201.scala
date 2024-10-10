@@ -3,7 +3,7 @@ package codec.types.field46.field2.types
 import codec.FieldCodecs.{AN, LLVAR}
 import codec.types.WalletData4602XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
 case class ProviderRiskAssessment460201(

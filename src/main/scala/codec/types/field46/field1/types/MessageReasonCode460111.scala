@@ -1,9 +1,9 @@
 package codec.types.field46.field1.types
 
-import codec.FieldCodecs.{AN, LLVAR, LLVAR_N, N}
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.TokenData4601XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
 case class MessageReasonCode460111(code: MessageReasonCode460111.ReasonCode)

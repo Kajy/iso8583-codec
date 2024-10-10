@@ -1,9 +1,9 @@
 package codec.types.field47
 
-import codec.FieldCodecs.{LLVAR, N}
+import codec.FieldCodecs.N
 import codec.types.field47.types.IssuerBankCode4701
 import scodec.Codec
-import scodec.codecs._
+import scodec.codecs.*
 
 trait AdditionalData47XX
 

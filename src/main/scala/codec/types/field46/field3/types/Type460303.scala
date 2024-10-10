@@ -1,11 +1,11 @@
 package codec.types.field46.field3.types
 
 import codec.FieldCodecs.{AN, LLVAR}
-import codec.types.WalletData4602XX
 import codec.types.field46.field3.DeviceData4603XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.Codec
-import scodec.codecs.{mappedEnum, StringEnrichedWithCodecContextSupport}
+import scodec.codecs.{StringEnrichedWithCodecContextSupport, mappedEnum}
+import scodec.TransformSyntax
 
 case class Type460303(
     `type`: Type460303.Type

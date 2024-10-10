@@ -1,12 +1,7 @@
 package codec.types.field48
 
 import codec.ISO8583Definition.PRIVATE_DATA
-import codec.types.field48.types.{
-  OperationType4801,
-  TerminalPartialAuthorSupport4806,
-  TrackOrChip4804,
-  TransactionEnvType4803
-}
+import codec.types.field48.types.{OperationType4801, TerminalPartialAuthorSupport4806, TrackOrChip4804, TransactionEnvType4803}
 import org.scalatest.OptionValues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper

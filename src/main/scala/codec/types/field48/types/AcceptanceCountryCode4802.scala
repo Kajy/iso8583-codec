@@ -1,12 +1,9 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{LLVAR_N, N}
+import codec.FieldCodecs.LLVAR_N
 import codec.types.field48.PrivateData48XX
 import com.neovisionaries.i18n.CountryCode
-import enumeratum.values.{StringEnum, StringEnumEntry}
-
 import scodec.Codec
-import scodec.codecs._
 
 case class AcceptanceCountryCode4802(code: CountryCode) extends PrivateData48XX
 

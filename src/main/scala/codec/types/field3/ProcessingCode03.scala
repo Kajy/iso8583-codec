@@ -2,7 +2,7 @@ package codec.types
 
 import enumeratum.{Enum, EnumEntry}
 import scodec.bits.{ByteVector, HexStringSyntax}
-import scodec.codecs._
+import scodec.codecs.*
 
 sealed abstract class ProcessingCode03 extends EnumEntry
 

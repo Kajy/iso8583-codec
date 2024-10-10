@@ -1,6 +1,6 @@
 package codec.types.field46.field2.types
 
-import codec.FieldCodecs.{LLVAR_AN, LLVAR_ANS, LLVAR_N}
+import codec.FieldCodecs.LLVAR_ANS
 import codec.types.WalletData4602XX
 import scodec.Codec
 

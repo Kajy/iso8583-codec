@@ -3,7 +3,7 @@ package codec.types.field46.field3.types
 import codec.FieldCodecs.{AN, LLVAR}
 import codec.types.field46.field3.DeviceData4603XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
 case class StorageTechnology460315(

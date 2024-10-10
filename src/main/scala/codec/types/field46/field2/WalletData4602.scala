@@ -1,7 +1,7 @@
 package codec.types
 
 import codec.FieldCodecs.{LLVAR, N}
-import codec.types.field46.field2.types._
+import codec.types.field46.field2.types.*
 import scodec.Codec
 import scodec.codecs.{discriminated, list}
 

@@ -1,13 +1,8 @@
 package codec
 
-import codec.FieldCodecs.{AN, ANS, LLVAR_N, N}
-import codec.ISO8583Definition.WALLET_DATA_INFOS
-import codec.types.WalletInfos46
-import codec.types.field46.field1.types.RequestorId460102
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper
 import scodec.bits.HexStringSyntax
-import scodec.codecs._
 
 class ISO8583CodecSpec extends AnyFlatSpec {
 
@@ -21,9 +16,12 @@ class ISO8583CodecSpec extends AnyFlatSpec {
     val rawMsgWithWalletInfos =
       hex"0x000000e80100f660440004e5a000000000420000000010f8f9f2f6f7f2f4f3f0f9f1f4f7f9f5f301000000000000010000000000010010080633520000000017350375070101c4d9f78192e692a6c181f797f3e7c4e396d99694f4d7a9f0a9c188d8e3f7a5c695e5f78888c4c240404040404040404040404040a4a2c4a9f5a7d389c6a34040404040e4e2001c011a020c0501100302731210f0f8f4f2f7f9f4f6f6f7f4f5f3f4f2f200130302020602001102011202304205f5a9c4f29209780978000000000000000000000000000000000000000000000000000000000000000000000000000000000000".bits
 
-    val result = ISO8583Codec.CODEC.decode(rawMsgWithWalletInfos)
+    val result1 = ISO8583Codec.CODEC.decode(hexString)
+    ISO8583Codec.CODEC.decode(adviceRawMsg)
+    ISO8583Codec.CODEC.decode(rawMsgWithWalletInfos)
 
-    println(result)
+    println(result1)
     1 mustBe 1
   }
+
 }

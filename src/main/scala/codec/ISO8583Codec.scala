@@ -1,10 +1,15 @@
 package codec
 
-import codec.BitMap._
-import codec.ISO8583Definition._
+import codec.BitMap.*
+import codec.ISO8583Definition.*
 import codec.types.ISO8583
-import scodec.Codec
-import scodec.codecs._
+import scodec.{
+  Codec,
+  HListCodecEnrichedWithHListSupport,
+  TransformSyntax,
+  ValueCodecEnrichedWithHListSupport
+}
+import scodec.codecs.*
 
 object ISO8583Codec {
 
@@ -44,6 +49,7 @@ object ISO8583Codec {
           conditional(fields.isPresent(47), ADDITIONAL_DATA) ::
           conditional(fields.isPresent(48), PRIVATE_DATA)
       })).as[ISO8583]
+
   val CODEC: Codec[ISO8583] = variableSizeBytesLong(uint32, ISO_8583_CODEC)
 
 }

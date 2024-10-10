@@ -1,8 +1,8 @@
 package codec.types
 
-import codec.FieldCodecs._
+import codec.FieldCodecs.*
 import scodec.Codec
-import scodec.codecs._
+import scodec.codecs.*
 
 case class AdviceDetail44(
     RA: Option[String],

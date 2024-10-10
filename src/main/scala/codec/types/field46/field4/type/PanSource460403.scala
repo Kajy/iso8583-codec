@@ -3,8 +3,8 @@ package codec.types.field46.field4.`type`
 import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field46.field4.OtherData4604XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
-import scodec.codecs._
+import scodec.{Codec, TransformSyntax}
+import scodec.codecs.*
 
 case class PanSource460403(panSource: PanSource460403.PanSource)
     extends OtherData4604XX

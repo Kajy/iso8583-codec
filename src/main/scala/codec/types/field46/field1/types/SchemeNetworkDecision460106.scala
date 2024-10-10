@@ -3,10 +3,9 @@ package codec.types.field46.field1.types
 import codec.FieldCodecs.{AN, LLVAR}
 import codec.types.TokenData4601XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
-// 46.1.6
 case class SchemeNetworkDecision460106(
     decisionStatus: SchemeNetworkDecision460106.DecisionStatus
 ) extends TokenData4601XX

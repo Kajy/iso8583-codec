@@ -1,10 +1,10 @@
 package codec.types
 
-import codec.FieldCodecs._
+import codec.FieldCodecs.*
 import codec.types.field46.field3.DeviceData4603
 import codec.types.field46.field4.OtherData4604
 import scodec.Codec
-import scodec.codecs._
+import scodec.codecs.*
 
 trait WalletInfos46XX
 

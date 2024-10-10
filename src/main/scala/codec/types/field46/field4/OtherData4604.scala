@@ -2,16 +2,9 @@ package codec.types.field46.field4
 
 import codec.FieldCodecs.{LLVAR, N}
 import codec.types.WalletInfos46XX
-import codec.types.field46.field4.`type`.{
-  ActiveTokenNb460405,
-  CVX2Result460404,
-  CorrelationId460402,
-  HolderName460406,
-  PanSource460403,
-  ProductConfig460401
-}
+import codec.types.field46.field4.`type`.*
 import scodec.Codec
-import scodec.codecs._
+import scodec.codecs.*
 
 trait OtherData4604XX
 

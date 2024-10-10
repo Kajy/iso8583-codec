@@ -1,27 +1,12 @@
 package codec.types.field46
 
-import codec.FieldCodecs.LLVAR_ANS
 import codec.ISO8583Definition.WALLET_DATA_INFOS
-import codec.types.field46.field1.types.{
-  ActivationResultVerification460109,
-  MessageReasonCode460111,
-  SchemeNetworkDecision460106,
-  Status460108,
-  TypeData460103
-}
-import codec.types.field46.field2.types.{
-  ProviderRiskAssessment460201,
-  XPayId460207
-}
-import codec.types.field46.field3.types.{
-  OSType460304,
-  StorageTechnology460315,
-  TimezoneConfiguration460313,
-  Type460303
-}
+import codec.types.field46.field1.types.*
+import codec.types.field46.field2.types.{ProviderRiskAssessment460201, XPayId460207}
+import codec.types.field46.field3.types.{OSType460304, StorageTechnology460315, TimezoneConfiguration460313, Type460303}
 import codec.types.field46.field4.`type`.{CVX2Result460404, PanSource460403}
-import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.OptionValues
+import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper
 import scodec.bits.HexStringSyntax
 

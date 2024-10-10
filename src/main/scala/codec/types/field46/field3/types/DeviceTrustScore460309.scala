@@ -1,10 +1,8 @@
 package codec.types.field46.field3.types
 
-import codec.FieldCodecs.{LLVAR_N, N}
+import codec.FieldCodecs.LLVAR_N
 import codec.types.field46.field3.DeviceData4603XX
-import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
-import scodec.codecs.mappedEnum
+import scodec.{Codec, TransformSyntax}
 
 case class DeviceTrustScore460309(
     value: String

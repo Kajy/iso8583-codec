@@ -2,7 +2,7 @@ package codec.types.field46.field1.types
 
 import codec.FieldCodecs.LLVAR_N
 import codec.types.TokenData4601XX
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 
 case class VisaScore460105(score: String) extends TokenData4601XX
 

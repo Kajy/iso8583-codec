@@ -1,8 +1,8 @@
 package codec.types.field46.field3.types
 
-import codec.FieldCodecs.{LLVAR_AN, LLVAR_N}
+import codec.FieldCodecs.LLVAR_AN
 import codec.types.field46.field3.DeviceData4603XX
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 
 case class DeviceTimezone460312(
     value: String

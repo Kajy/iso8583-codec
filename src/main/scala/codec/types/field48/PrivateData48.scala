@@ -1,9 +1,9 @@
 package codec.types.field48
 
 import codec.FieldCodecs.N
-import codec.types.field48.types._
+import codec.types.field48.types.*
 import scodec.Codec
-import scodec.codecs._
+import scodec.codecs.*
 
 trait PrivateData48XX
 

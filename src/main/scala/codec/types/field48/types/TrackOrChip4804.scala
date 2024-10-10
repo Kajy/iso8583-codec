@@ -2,9 +2,9 @@ package codec.types.field48.types
 
 import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
-import enumeratum.values._
-import scodec.Codec
-import scodec.codecs._
+import enumeratum.values.*
+import scodec.{Codec, TransformSyntax}
+import scodec.codecs.*
 
 case class TrackOrChip4804(`type`: TrackOrChip4804.Type) extends PrivateData48XX
 

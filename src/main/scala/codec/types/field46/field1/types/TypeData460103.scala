@@ -3,7 +3,7 @@ package codec.types.field46.field1.types
 import codec.FieldCodecs.LLVAR_AN
 import codec.types.TokenData4601XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
 case class TypeData460103(`type`: TypeData460103.Type) extends TokenData4601XX

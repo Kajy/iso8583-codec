@@ -3,10 +3,9 @@ package codec.types.field46.field1.types
 import codec.FieldCodecs.{AN, LLVAR}
 import codec.types.TokenData4601XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.Codec
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
 
-// 46.1.8
 case class Status460108(status: Status460108.Status) extends TokenData4601XX
 
 object Status460108 {
