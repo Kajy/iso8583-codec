@@ -10,7 +10,7 @@ import scodec.bits.HexStringSyntax
 class PrivateData48Spec extends AnyFlatSpec with OptionValues {
 
   "Private data (48)" should "be decoded" in {
-    val infoSize = hex"00b6"
+    val infoSize = hex"00db"
     val type01   = hex"010200"
     val type02   = hex"02040250"
     val type03   = hex"030201"
@@ -41,6 +41,10 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     val type28   = hex"280c000000002500"
     val type29   = hex"290c000000001500"
     val type30   = hex"300c000000000500"
+    val type31   = hex"31041234"
+    val type32   = hex"320FF0F1F2F3F4F5F6F7F8F9F1F0F1F1F1"
+    val type33   = hex"3303F2F6F7"
+    val type34   = hex"3409F0F1F2F3F4F5F6F7F8"
 
     val tokenDataHex =
       (infoSize ++ type01 ++ type02 ++ type03 ++ type04 ++ type05 ++
@@ -48,7 +52,7 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
         type12 ++ type13 ++ type14 ++ type15 ++ type16 ++ type17 ++
         type18 ++ type19 ++ type20 ++ type21 ++ type22 ++ type23 ++
         type24 ++ type25 ++ type26 ++ type27 ++ type28 ++ type29 ++
-        type30).bits
+        type30 ++ type31 ++ type32 ++ type33 ++ type34).bits
 
     println(tokenDataHex.size / 8)
     val result = PRIVATE_DATA.decode(tokenDataHex).toOption.value.value
@@ -85,6 +89,10 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     result.atmServiceFee28.value.amount mustBe "000000002500"
     result.atmDisloyaltyFee29.value.amount mustBe "000000001500"
     result.creditCardFee30.value.amount mustBe "000000000500"
+    result.localMerchantCategoryCode31.value.categoryCode mustBe "1234"
+    result.merchantId32.value.id mustBe "012345678910111"
+    result.financialNetworkCode33.value.code mustBe "267"
+    result.banknetReferenceNumber34.value.number mustBe "012345678"
 
     val encodeResult = PRIVATE_DATA.encode(result).toOption.value
     encodeResult.toHex mustBe tokenDataHex.toHex

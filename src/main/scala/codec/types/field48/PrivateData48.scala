@@ -37,7 +37,11 @@ case class PrivateData48(
     amountTransactionFee27: Option[AmountTransactionFee4827],
     atmServiceFee28: Option[ATMServiceFee4828],
     atmDisloyaltyFee29: Option[ATMDisloyaltyFee4829],
-    creditCardFee30: Option[CreditCardFee4830]
+    creditCardFee30: Option[CreditCardFee4830],
+    localMerchantCategoryCode31: Option[LocalMerchantCategoryCode4831],
+    merchantId32: Option[MerchantId4832],
+    financialNetworkCode33: Option[FinancialNetworkCode4833],
+    banknetReferenceNumber34: Option[BanknetReferenceNumber4834]
 )
 
 object PrivateData48 {
@@ -75,6 +79,10 @@ object PrivateData48 {
       .typecase("28", "ATMServiceFee28" | ATMServiceFee4828.codec)
       .typecase("29", "ATMDisloyaltyFee29" | ATMDisloyaltyFee4829.codec)
       .typecase("30", "CreditCardFee30" | CreditCardFee4830.codec)
+      .typecase("31", "LocalMerchantCategoryCode31" | LocalMerchantCategoryCode4831.codec)
+      .typecase("32", "MerchantId32" | MerchantId4832.codec)
+      .typecase("33", "FinancialNetworkCode33" | FinancialNetworkCode4833.codec)
+      .typecase("34", "BanknetReferenceNumber34" | BanknetReferenceNumber4834.codec)
 
   val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
     fields =>
@@ -108,7 +116,11 @@ object PrivateData48 {
         fields.collectFirst { case t: AmountTransactionFee4827 => t },
         fields.collectFirst { case t: ATMServiceFee4828 => t },
         fields.collectFirst { case t: ATMDisloyaltyFee4829 => t },
-        fields.collectFirst { case t: CreditCardFee4830 => t }
+        fields.collectFirst { case t: CreditCardFee4830 => t },
+        fields.collectFirst { case t: LocalMerchantCategoryCode4831 => t },
+        fields.collectFirst { case t: MerchantId4832 => t },
+        fields.collectFirst { case t: FinancialNetworkCode4833 => t },
+        fields.collectFirst { case t: BanknetReferenceNumber4834 => t }
       ),
     pd =>
       List.concat(
@@ -141,7 +153,11 @@ object PrivateData48 {
         pd.amountTransactionFee27,
         pd.atmServiceFee28,
         pd.atmDisloyaltyFee29,
-        pd.creditCardFee30
+        pd.creditCardFee30,
+        pd.localMerchantCategoryCode31,
+        pd.merchantId32,
+        pd.financialNetworkCode33,
+        pd.banknetReferenceNumber34
       )
   )
 
