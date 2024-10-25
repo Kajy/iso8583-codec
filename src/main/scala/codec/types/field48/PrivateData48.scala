@@ -29,7 +29,15 @@ case class PrivateData48(
     resetAccumulator2_19: Option[ResetAccumulator2_4819],
     offlineContactLimitAmount20: Option[OfflineContactLimitAmount4820],
     offlineContactlessLimitAmount21: Option[OfflineContactlessLimitAmount4821],
-    transactionCategoryCode22: Option[TransactionCategoryCode4822]
+    transactionCategoryCode22: Option[TransactionCategoryCode4822],
+    schemeNetworkAuthentication23: Option[SchemeNetworkAuthentication4823],
+    eCommerceAuthentificationFlag24: Option[ECommerceAuthentificationFlag4824],
+    protocolVersion25: Option[ProtocolVersion4825],
+    DS_ACS_TransactionId26: Option[DS_ACS_TransactionId4826],
+    amountTransactionFee27: Option[AmountTransactionFee4827],
+    atmServiceFee28: Option[ATMServiceFee4828],
+    atmDisloyaltyFee29: Option[ATMDisloyaltyFee4829],
+    creditCardFee30: Option[CreditCardFee4830]
 )
 
 object PrivateData48 {
@@ -59,6 +67,14 @@ object PrivateData48 {
       .typecase("20", "OfflineContactLimitAmount20" | OfflineContactLimitAmount4820.codec)
       .typecase("21", "OfflineContactlessLimitAmount21" | OfflineContactlessLimitAmount4821.codec)
       .typecase("22", "TransactionCategoryCode22" | TransactionCategoryCode4822.codec)
+      .typecase("23", "SchemeNetworkAuthentication23" | SchemeNetworkAuthentication4823.codec)
+      .typecase("24", "ECommerceAuthentificationFlag24" | ECommerceAuthentificationFlag4824.codec)
+      .typecase("25", "ProtocolVersion25" | ProtocolVersion4825.codec)
+      .typecase("26", "DS_ACS_TransactionId26" | DS_ACS_TransactionId4826.codec)
+      .typecase("27", "AmountTransactionFee27" | AmountTransactionFee4827.codec)
+      .typecase("28", "ATMServiceFee28" | ATMServiceFee4828.codec)
+      .typecase("29", "ATMDisloyaltyFee29" | ATMDisloyaltyFee4829.codec)
+      .typecase("30", "CreditCardFee30" | CreditCardFee4830.codec)
 
   val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
     fields =>
@@ -84,7 +100,15 @@ object PrivateData48 {
         fields.collectFirst { case t: ResetAccumulator2_4819 => t },
         fields.collectFirst { case t: OfflineContactLimitAmount4820 => t },
         fields.collectFirst { case t: OfflineContactlessLimitAmount4821 => t },
-        fields.collectFirst { case t: TransactionCategoryCode4822 => t }
+        fields.collectFirst { case t: TransactionCategoryCode4822 => t },
+        fields.collectFirst { case t: SchemeNetworkAuthentication4823 => t },
+        fields.collectFirst { case t: ECommerceAuthentificationFlag4824 => t },
+        fields.collectFirst { case t: ProtocolVersion4825 => t },
+        fields.collectFirst { case t: DS_ACS_TransactionId4826 => t },
+        fields.collectFirst { case t: AmountTransactionFee4827 => t },
+        fields.collectFirst { case t: ATMServiceFee4828 => t },
+        fields.collectFirst { case t: ATMDisloyaltyFee4829 => t },
+        fields.collectFirst { case t: CreditCardFee4830 => t }
       ),
     pd =>
       List.concat(
@@ -109,7 +133,15 @@ object PrivateData48 {
         pd.resetAccumulator2_19,
         pd.offlineContactLimitAmount20,
         pd.offlineContactlessLimitAmount21,
-        pd.transactionCategoryCode22
+        pd.transactionCategoryCode22,
+        pd.schemeNetworkAuthentication23,
+        pd.eCommerceAuthentificationFlag24,
+        pd.protocolVersion25,
+        pd.DS_ACS_TransactionId26,
+        pd.amountTransactionFee27,
+        pd.atmServiceFee28,
+        pd.atmDisloyaltyFee29,
+        pd.creditCardFee30
       )
   )
 

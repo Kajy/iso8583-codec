@@ -10,7 +10,7 @@ import scodec.bits.HexStringSyntax
 class PrivateData48Spec extends AnyFlatSpec with OptionValues {
 
   "Private data (48)" should "be decoded" in {
-    val infoSize = hex"0060"
+    val infoSize = hex"00b6"
     val type01   = hex"010200"
     val type02   = hex"02040250"
     val type03   = hex"030201"
@@ -33,12 +33,24 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     val type20   = hex"200C000000002001"
     val type21   = hex"210C000000002002"
     val type22   = hex"220209"
+    val type23   = hex"230212"
+    val type24   = hex"240202"
+    val type25   = hex"2505F14BA74BA7"
+    val type26   = hex"262466333865363934382D353338382D343161362D626361342D623439373233633139343337"
+    val type27   = hex"2709C4F0F0F0F0F2F5F0F0"
+    val type28   = hex"280c000000002500"
+    val type29   = hex"290c000000001500"
+    val type30   = hex"300c000000000500"
+
     val tokenDataHex =
       (infoSize ++ type01 ++ type02 ++ type03 ++ type04 ++ type05 ++
         type06 ++ type07 ++ type08 ++ type09 ++ type10 ++ type11 ++
         type12 ++ type13 ++ type14 ++ type15 ++ type16 ++ type17 ++
-        type18 ++ type19 ++ type20 ++ type21 ++ type22).bits
+        type18 ++ type19 ++ type20 ++ type21 ++ type22 ++ type23 ++
+        type24 ++ type25 ++ type26 ++ type27 ++ type28 ++ type29 ++
+        type30).bits
 
+    println(tokenDataHex.size / 8)
     val result = PRIVATE_DATA.decode(tokenDataHex).toOption.value.value
 
     result.operationType01.value.code mustBe OperationType4801.OperationType.CREDIT
@@ -64,6 +76,15 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     result.offlineContactLimitAmount20.value.amount mustBe "000000002001"
     result.offlineContactlessLimitAmount21.value.amount mustBe "000000002002"
     result.transactionCategoryCode22.value.categoryCode mustBe TransactionCategoryCode4822.TransactionCategoryCode.UNIQUE
+    result.schemeNetworkAuthentication23.value.`type` mustBe SchemeNetworkAuthentication4823.AuthenticationType.FORMAT_ERROR
+    result.eCommerceAuthentificationFlag24.value.flag mustBe ECommerceAuthentificationFlag4824.AuthentificationFlag.ATTEMPT
+    result.protocolVersion25.value.version mustBe "1.x.x"
+    result.DS_ACS_TransactionId26.value.id mustBe "f38e6948-5388-41a6-bca4-b49723c19437"
+    result.amountTransactionFee27.value.side mustBe "D"
+    result.amountTransactionFee27.value.amount mustBe "00002500"
+    result.atmServiceFee28.value.amount mustBe "000000002500"
+    result.atmDisloyaltyFee29.value.amount mustBe "000000001500"
+    result.creditCardFee30.value.amount mustBe "000000000500"
 
     val encodeResult = PRIVATE_DATA.encode(result).toOption.value
     encodeResult.toHex mustBe tokenDataHex.toHex
