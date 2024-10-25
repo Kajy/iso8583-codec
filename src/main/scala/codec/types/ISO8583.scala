@@ -3,7 +3,6 @@ package codec.types
 import codec.BitMap.Fields
 import codec.MessageType
 import codec.types.field47.AdditionalData47
-import codec.types.field48.PrivateData48
 
 import java.time.format.DateTimeFormatter
 import java.time.{LocalTime, MonthDay, YearMonth}
@@ -35,13 +34,13 @@ case class ISO8583(
     acceptorNameAddress: Option[AcceptorInfos43],
     adviceAdditionalData: Option[AdviceDetail44],
     walletDataInfos: Option[WalletInfos46],
-    additionalData: Option[AdditionalData47],
-    privateData: Option[PrivateData48]
+    additionalData: Option[AdditionalData47]
+    // privateData: Option[PrivateData48]
 ) {
 
   private val localDateFormatter = DateTimeFormatter.ofPattern("MM/dd")
 
-  override def toString: String = {
+  override def toString: String =
     f"""
        |FIELDS : ${fields.filter(_._2).keys.toList.sorted}
        |MSG TYPE: ${msgType}
@@ -70,5 +69,5 @@ case class ISO8583(
        |ADVICE DETAILS: ${adviceAdditionalData}
        |WALLET DATA INFO: ${walletDataInfos}
        |""".stripMargin
-  }
+
 }

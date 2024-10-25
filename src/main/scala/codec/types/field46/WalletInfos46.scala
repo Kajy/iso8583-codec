@@ -15,17 +15,19 @@ case class WalletInfos46(
     deviceData03: Option[DeviceData4603],
     otherData04: Option[OtherData4604]
 ) {
-  override def toString: String = {
+
+  override def toString: String =
     f"""
        |tokenData01: ${tokenData01},
        |walletData4602: ${walletData02}
        |deviceData4603: ${deviceData03}
        |otherData04: ${otherData04}
        |""".stripMargin
-  }
+
 }
 
 object WalletInfos46 {
+
   private val subFieldsCodec: Codec[WalletInfos46XX] =
     discriminated[WalletInfos46XX]
       .by(N(2))
@@ -35,14 +37,13 @@ object WalletInfos46 {
       .typecase("04", "OtherData04" | OtherData4604.codec)
 
   val codec: Codec[WalletInfos46] = list(subFieldsCodec).xmap(
-    fields => {
-      val tokenData01 = fields.collectFirst({ case t: TokenData4601 => t })
-      val walletData02 = fields.collectFirst({ case t: WalletData4602 => t })
-      val deviceData03 = fields.collectFirst({ case t: DeviceData4603 => t })
-      val otherData04 = fields.collectFirst({ case t: OtherData4604 => t })
-
-      WalletInfos46(tokenData01, walletData02, deviceData03, otherData04)
-    },
+    fields =>
+      WalletInfos46(
+        fields.collectFirst { case t: TokenData4601 => t },
+        fields.collectFirst { case t: WalletData4602 => t },
+        fields.collectFirst { case t: DeviceData4603 => t },
+        fields.collectFirst { case t: OtherData4604 => t }
+      ),
     wd =>
       List.concat(
         wd.tokenData01,

@@ -22,7 +22,7 @@ object TerminalPartialAuthorSupport4806 {
     case object SUPPORT_ALL                      extends TerminalSupport("11")
 
     val mapping = TerminalSupport.valuesToEntriesMap.map(_.swap)
-    val codec   = "OperationType" | mappedEnum(N, mapping)
+    val codec   = "TerminalSupport" | mappedEnum(N, mapping)
   }
 
   val codec: Codec[TerminalPartialAuthorSupport4806] =

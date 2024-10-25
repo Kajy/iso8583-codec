@@ -1,9 +1,9 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{LLVAR_N, N}
+import codec.FieldCodecs.{ LLVAR_N, N }
 import codec.types.field48.PrivateData48XX
-import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
+import enumeratum.values.{ StringEnum, StringEnumEntry }
+import scodec.{ Codec, TransformSyntax }
 import scodec.codecs.*
 
 case class TransactionEnvType4803(`type`: TransactionEnvType4803.EnvType) extends PrivateData48XX
@@ -25,10 +25,8 @@ object TransactionEnvType4803 {
     case object OTHER                              extends EnvType("99")
 
     val mapping = EnvType.valuesToEntriesMap.map(_.swap)
-    val codec   = "OperationType" | mappedEnum(N, mapping)
+    val codec   = "EnvType" | mappedEnum(N, mapping)
   }
 
-  val codec: Codec[TransactionEnvType4803] =
-    LLVAR_N(EnvType.codec).as[TransactionEnvType4803]
-
+  val codec: Codec[TransactionEnvType4803] = LLVAR_N(EnvType.codec).as[TransactionEnvType4803]
 }

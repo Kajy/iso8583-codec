@@ -1,9 +1,9 @@
 package codec.types
 
-import codec.FieldCodecs.{LLVAR, N}
+import codec.FieldCodecs.{ LLVAR, N }
 import codec.types.field46.field2.types.*
 import scodec.Codec
-import scodec.codecs.{discriminated, list}
+import scodec.codecs.{ discriminated, list }
 
 trait WalletData4602XX
 
@@ -34,27 +34,16 @@ object WalletData4602 {
 
   val codec: Codec[WalletData4602] = LLVAR(list(subFieldsCodec))
     .xmap(
-      fields => {
-        val pra01 = fields.collectFirst({
-          case t: ProviderRiskAssessment460201 => t
-        })
-        val praV02 = fields.collectFirst({
-          case t: ProviderRiskAssessmentVersion460202 => t
-        })
-        val pas03 = fields.collectFirst({ case t: ProviderAccountScore460203 =>
-          t
-        })
-        val prc05 = fields.collectFirst({ case t: ProviderReasonCode460205 =>
-          t
-        })
-        val acId06 = fields.collectFirst({ case t: AccountId460206 => t })
-        val xpay07 = fields.collectFirst({ case t: XPayId460207 => t })
-        val apiId08 = fields.collectFirst({
-          case t: AppPaymentInstanceId460208 => t
-        })
-
-        WalletData4602(pra01, praV02, pas03, prc05, acId06, xpay07, apiId08)
-      },
+      fields =>
+        WalletData4602(
+          fields.collectFirst { case t: ProviderRiskAssessment460201 => t },
+          fields.collectFirst { case t: ProviderRiskAssessmentVersion460202 => t },
+          fields.collectFirst { case t: ProviderAccountScore460203 => t },
+          fields.collectFirst { case t: ProviderReasonCode460205 => t },
+          fields.collectFirst { case t: AccountId460206 => t },
+          fields.collectFirst { case t: XPayId460207 => t },
+          fields.collectFirst { case t: AppPaymentInstanceId460208 => t }
+        ),
       wd =>
         List.concat(
           wd.providerRiskAssessment01,
@@ -66,4 +55,5 @@ object WalletData4602 {
           wd.appPaymentInstanceId08
         )
     )
+
 }

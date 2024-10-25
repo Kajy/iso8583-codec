@@ -20,7 +20,7 @@ object TrackOrChip4804 {
     case object OTHER extends Type("99")
 
     val mapping = EnvType.valuesToEntriesMap.map(_.swap)
-    val codec = "OperationType" | mappedEnum(N, mapping)
+    val codec = "Type" | mappedEnum(N, mapping)
   }
 
   val codec: Codec[TrackOrChip4804] = LLVAR_N(EnvType.codec).as[TrackOrChip4804]

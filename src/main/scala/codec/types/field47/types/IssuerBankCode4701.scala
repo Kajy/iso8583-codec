@@ -2,7 +2,7 @@ package codec.types.field47.types
 
 import codec.FieldCodecs.LLVAR_N
 import codec.types.field47.AdditionalData47XX
-import scodec.{Codec, TransformSyntax}
+import scodec.{ Codec, TransformSyntax }
 
 case class IssuerBankCode4701(code: String) extends AdditionalData47XX
 

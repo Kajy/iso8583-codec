@@ -10,17 +10,18 @@ trait AdditionalData47XX
 case class AdditionalData47(issuerBankCode01: Option[IssuerBankCode4701])
 
 object AdditionalData47 {
-  private val subFieldCodec = {
+
+  private val subFieldCodec =
     discriminated[AdditionalData47XX]
       .by(N(2))
       .typecase("01", "IssuerBankCode01" | IssuerBankCode4701.codec)
-  }
 
   val codec: Codec[AdditionalData47] = list(subFieldCodec).xmap(
-    fields => {
-      val ibc01 = fields.collectFirst({ case t: IssuerBankCode4701 => t })
-      AdditionalData47(ibc01)
-    },
+    fields =>
+      AdditionalData47(
+        fields.collectFirst { case t: IssuerBankCode4701 => t }
+      ),
     ad => List.concat(ad.issuerBankCode01)
   )
+
 }

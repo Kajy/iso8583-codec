@@ -3,7 +3,7 @@ package codec.types
 import codec.FieldCodecs.*
 import codec.types.field46.field1.types.*
 import scodec.Codec
-import scodec.codecs.{discriminated, list}
+import scodec.codecs.{ discriminated, list }
 
 trait TokenData4601XX
 
@@ -22,7 +22,8 @@ case class TokenData4601(
     messageReasonCode11: Option[MessageReasonCode460111],
     walletProvisionedToken12: Option[WalletProvisionedToken460112]
 ) extends WalletInfos46XX {
-  override def toString: String = {
+
+  override def toString: String =
     List
       .concat(
         this.uniqueTokenId01,
@@ -39,10 +40,11 @@ case class TokenData4601(
         this.walletProvisionedToken12
       )
       .mkString(", ")
-  }
+
 }
 
 object TokenData4601 {
+
   private val subFieldsCodec: Codec[TokenData4601XX] =
     discriminated[TokenData4601XX]
       .by(N(2))
@@ -62,51 +64,21 @@ object TokenData4601 {
   val codec: Codec[TokenData4601] =
     LLVAR(list(subFieldsCodec))
       .xmap(
-        fields => {
-          val field01 = fields.collectFirst({ case t: UniqueId460101 => t })
-          val field02 = fields.collectFirst { case t: RequestorId460102 => t }
-          val field03 = fields.collectFirst { case t: TypeData460103 => t }
-          val field04 = fields.collectFirst { case t: ConfidenceLevel460104 =>
-            t
-          }
-          val field05 = fields.collectFirst { case t: VisaScore460105 =>
-            t
-          }
-          val field06 = fields.collectFirst {
-            case t: SchemeNetworkDecision460106 => t
-          }
-          val field07 = fields.collectFirst { case t: ExpirationDate460107 =>
-            t
-          }
-          val field08 = fields.collectFirst { case t: Status460108 => t }
-          val field09 = fields.collectFirst {
-            case t: ActivationResultVerification460109 => t
-          }
-          val field10 = fields.collectFirst {
-            case t: ActivationNbAttempts460110 =>
-              t
-          }
-          val field11 = fields.collectFirst { case t: MessageReasonCode460111 =>
-            t
-          }
-          val field12 = fields.collectFirst {
-            case t: WalletProvisionedToken460112 => t
-          }
+        fields =>
           TokenData4601(
-            field01,
-            field02,
-            field03,
-            field04,
-            field05,
-            field06,
-            field07,
-            field08,
-            field09,
-            field10,
-            field11,
-            field12
-          )
-        },
+            fields.collectFirst { case t: UniqueId460101 => t },
+            fields.collectFirst { case t: RequestorId460102 => t },
+            fields.collectFirst { case t: TypeData460103 => t },
+            fields.collectFirst { case t: ConfidenceLevel460104 => t },
+            fields.collectFirst { case t: VisaScore460105 => t },
+            fields.collectFirst { case t: SchemeNetworkDecision460106 => t },
+            fields.collectFirst { case t: ExpirationDate460107 => t },
+            fields.collectFirst { case t: Status460108 => t },
+            fields.collectFirst { case t: ActivationResultVerification460109 => t },
+            fields.collectFirst { case t: ActivationNbAttempts460110 => t },
+            fields.collectFirst { case t: MessageReasonCode460111 => t },
+            fields.collectFirst { case t: WalletProvisionedToken460112 => t }
+          ),
         td =>
           List.concat(
             td.uniqueTokenId01,
@@ -123,4 +95,5 @@ object TokenData4601 {
             td.walletProvisionedToken12
           )
       )
+
 }

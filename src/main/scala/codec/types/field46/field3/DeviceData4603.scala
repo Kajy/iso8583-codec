@@ -1,10 +1,10 @@
 package codec.types.field46.field3
 
-import codec.FieldCodecs.{LLVAR, N}
+import codec.FieldCodecs.{ LLVAR, N }
 import codec.types.WalletInfos46XX
 import codec.types.field46.field3.types.*
 import scodec.Codec
-import scodec.codecs.{discriminated, list}
+import scodec.codecs.{ discriminated, list }
 
 trait DeviceData4603XX
 
@@ -28,6 +28,7 @@ case class DeviceData4603(
 ) extends WalletInfos46XX
 
 object DeviceData4603 {
+
   private val subFieldsCodec: Codec[DeviceData4603XX] =
     discriminated[DeviceData4603XX]
       .by(N(2))
@@ -50,48 +51,25 @@ object DeviceData4603 {
 
   val codec: Codec[DeviceData4603] = LLVAR(list(subFieldsCodec))
     .xmap(
-      fields => {
-        val sn01 = fields.collectFirst({ case t: SerialNumber460301 => t })
-        val n02 = fields.collectFirst({ case t: Name460302 => t })
-        val t03 = fields.collectFirst({ case t: Type460303 => t })
-        val ost04 = fields.collectFirst({ case t: OSType460304 => t })
-        val osi05 = fields.collectFirst({ case t: OSIdentifier460305 => t })
-        val lc06 = fields.collectFirst({ case t: LanguageCode460306 => t })
-        val ipaddr07 = fields.collectFirst({ case t: IPAddress460307 => t })
-        val l08 = fields.collectFirst({ case t: Location460308 => t })
-        val dts09 = fields.collectFirst({ case t: DeviceTrustScore460309 => t })
-        val hid10 = fields.collectFirst({ case t: HardwareIdentifier460310 =>
-          t
-        })
-        val bma11 = fields.collectFirst({ case t: BluetoothMacAddress460311 =>
-          t
-        })
-        val dt12 = fields.collectFirst({ case t: DeviceTimezone460312 => t })
-        val tc13 = fields.collectFirst({ case t: TimezoneConfiguration460313 =>
-          t
-        })
-        val dn14 = fields.collectFirst({ case t: DeviceNumber460314 => t })
-        val st15 = fields.collectFirst({ case t: StorageTechnology460315 => t })
-        val pld16 = fields.collectFirst({ case t: PhoneLastDigits460316 => t })
+      fields =>
         DeviceData4603(
-          sn01,
-          n02,
-          t03,
-          ost04,
-          osi05,
-          lc06,
-          ipaddr07,
-          l08,
-          dts09,
-          hid10,
-          bma11,
-          dt12,
-          tc13,
-          dn14,
-          st15,
-          pld16
-        )
-      },
+          fields.collectFirst { case t: SerialNumber460301 => t },
+          fields.collectFirst { case t: Name460302 => t },
+          fields.collectFirst { case t: Type460303 => t },
+          fields.collectFirst { case t: OSType460304 => t },
+          fields.collectFirst { case t: OSIdentifier460305 => t },
+          fields.collectFirst { case t: LanguageCode460306 => t },
+          fields.collectFirst { case t: IPAddress460307 => t },
+          fields.collectFirst { case t: Location460308 => t },
+          fields.collectFirst { case t: DeviceTrustScore460309 => t },
+          fields.collectFirst { case t: HardwareIdentifier460310 => t },
+          fields.collectFirst { case t: BluetoothMacAddress460311 => t },
+          fields.collectFirst { case t: DeviceTimezone460312 => t },
+          fields.collectFirst { case t: TimezoneConfiguration460313 => t },
+          fields.collectFirst { case t: DeviceNumber460314 => t },
+          fields.collectFirst { case t: StorageTechnology460315 => t },
+          fields.collectFirst { case t: PhoneLastDigits460316 => t }
+        ),
       dd =>
         List.concat(
           dd.serialNumber01,
@@ -112,4 +90,5 @@ object DeviceData4603 {
           dd.lastDigits16
         )
     )
+
 }

@@ -1,6 +1,6 @@
 package codec.types.field46.field4
 
-import codec.FieldCodecs.{LLVAR, N}
+import codec.FieldCodecs.{ LLVAR, N }
 import codec.types.WalletInfos46XX
 import codec.types.field46.field4.`type`.*
 import scodec.Codec
@@ -18,6 +18,7 @@ case class OtherData4604(
 ) extends WalletInfos46XX
 
 object OtherData4604 {
+
   private val subFieldsCodec: Codec[OtherData4604XX] =
     discriminated[OtherData4604XX]
       .by(N(2))
@@ -29,15 +30,15 @@ object OtherData4604 {
       .typecase("06", "HolderName06" | HolderName460406.codec)
 
   val codec: Codec[OtherData4604] = LLVAR(list(subFieldsCodec)).xmap(
-    fields => {
-      val pc01 = fields.collectFirst({ case t: ProductConfig460401 => t })
-      val cId02 = fields.collectFirst({ case t: CorrelationId460402 => t })
-      val ps03 = fields.collectFirst({ case t: PanSource460403 => t })
-      val cr04 = fields.collectFirst({ case t: CVX2Result460404 => t })
-      val tNb05 = fields.collectFirst({ case t: ActiveTokenNb460405 => t })
-      val hn06 = fields.collectFirst({ case t: HolderName460406 => t })
-      OtherData4604(pc01, cId02, ps03, cr04, tNb05, hn06)
-    },
+    fields =>
+      OtherData4604(
+        fields.collectFirst { case t: ProductConfig460401 => t },
+        fields.collectFirst { case t: CorrelationId460402 => t },
+        fields.collectFirst { case t: PanSource460403 => t },
+        fields.collectFirst { case t: CVX2Result460404 => t },
+        fields.collectFirst { case t: ActiveTokenNb460405 => t },
+        fields.collectFirst { case t: HolderName460406 => t }
+      ),
     od =>
       List.concat(
         od.productConfig01,
@@ -48,4 +49,5 @@ object OtherData4604 {
         od.holderName06
       )
   )
+
 }
