@@ -2,6 +2,9 @@ package codec.types.field48
 
 import codec.ISO8583Definition.PRIVATE_DATA
 import codec.types.field48.types.*
+import codec.types.field48.types.RecurringPaymentIndicator4835.RecurringPaymentIndicator
+import codec.types.field48.types.TransitTransactionTypeIdentifier4837.TransitTransactionTypeIdentifier
+import codec.types.field48.types.TransportationModeIndicator4838.TransportationModeIndicator
 import org.scalatest.OptionValues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.convertToAnyMustWrapper
@@ -10,7 +13,7 @@ import scodec.bits.HexStringSyntax
 class PrivateData48Spec extends AnyFlatSpec with OptionValues {
 
   "Private data (48)" should "be decoded" in {
-    val infoSize = hex"00db"
+    val infoSize = hex"0108"
     val type01   = hex"010200"
     val type02   = hex"02040250"
     val type03   = hex"030201"
@@ -36,7 +39,7 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     val type23   = hex"230212"
     val type24   = hex"240202"
     val type25   = hex"2505F14BA74BA7"
-    val type26   = hex"262466333865363934382D353338382D343161362D626361342D623439373233633139343337"
+    val type26   = hex"262486f3f885f6f9f4f860f5f3f8f860f4f181f660828381f46082f4f9f7f2f383f1f9f4f3f7"
     val type27   = hex"2709C4F0F0F0F0F2F5F0F0"
     val type28   = hex"280c000000002500"
     val type29   = hex"290c000000001500"
@@ -45,6 +48,15 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     val type32   = hex"320FF0F1F2F3F4F5F6F7F8F9F1F0F1F1F1"
     val type33   = hex"3303F2F6F7"
     val type34   = hex"3409F0F1F2F3F4F5F6F7F8"
+    val type35   = hex"350203"
+    val type36   = hex"3606011411"
+    val type37   = hex"370203"
+    val type38   = hex"380211"
+    val type39   = hex"390869972522"
+    val type40   = hex"4001C4"
+    val type41   = hex"4106012345"
+    val type42   = hex"4205F3F4F4F1F0"
+    val type43   = hex"43080106123456020211"
 
     val tokenDataHex =
       (infoSize ++ type01 ++ type02 ++ type03 ++ type04 ++ type05 ++
@@ -52,7 +64,9 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
         type12 ++ type13 ++ type14 ++ type15 ++ type16 ++ type17 ++
         type18 ++ type19 ++ type20 ++ type21 ++ type22 ++ type23 ++
         type24 ++ type25 ++ type26 ++ type27 ++ type28 ++ type29 ++
-        type30 ++ type31 ++ type32 ++ type33 ++ type34).bits
+        type30 ++ type31 ++ type32 ++ type33 ++ type34 ++ type35 ++
+        type36 ++ type37 ++ type38 ++ type39 ++ type40 ++ type41 ++
+        type42 ++ type43).bits
 
     println(tokenDataHex.size / 8)
     val result = PRIVATE_DATA.decode(tokenDataHex).toOption.value.value
@@ -93,6 +107,16 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
     result.merchantId32.value.id mustBe "012345678910111"
     result.financialNetworkCode33.value.code mustBe "267"
     result.banknetReferenceNumber34.value.number mustBe "012345678"
+    result.recurringPaymentIndicator35.value.`type` mustBe RecurringPaymentIndicator.SUBSEQUENT_RECURRING
+    result.finalAuthorizationIndicator36.value.value mustBe "011411"
+    result.transitTransactionTypeIdentifier37.value.`type` mustBe TransitTransactionTypeIdentifier.POST_AUTHORIZED_AGG
+    result.transportationModeIndicator38.value.mode mustBe TransportationModeIndicator.RURAL_BUS
+    result.referenceConversionRate39.value.rate mustBe 9.972522
+    result.referenceConversionRateSide40.value.side mustBe "D"
+    result.referenceConversionRatePercentDiff41.value.rate mustBe 123.45
+    result.POSPostalCode42.value.code mustBe "34410"
+    // Test of subtypes in AdditionalFraudData4843Spec
+    result.additionalFraudData4843.nonEmpty mustBe true
 
     val encodeResult = PRIVATE_DATA.encode(result).toOption.value
     encodeResult.toHex mustBe tokenDataHex.toHex

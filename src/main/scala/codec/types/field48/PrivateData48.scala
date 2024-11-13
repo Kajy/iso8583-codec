@@ -41,7 +41,16 @@ case class PrivateData48(
     localMerchantCategoryCode31: Option[LocalMerchantCategoryCode4831],
     merchantId32: Option[MerchantId4832],
     financialNetworkCode33: Option[FinancialNetworkCode4833],
-    banknetReferenceNumber34: Option[BanknetReferenceNumber4834]
+    banknetReferenceNumber34: Option[BanknetReferenceNumber4834],
+    recurringPaymentIndicator35: Option[RecurringPaymentIndicator4835],
+    finalAuthorizationIndicator36: Option[FinalAuthorizationIndicator4836],
+    transitTransactionTypeIdentifier37: Option[TransitTransactionTypeIdentifier4837],
+    transportationModeIndicator38: Option[TransportationModeIndicator4838],
+    referenceConversionRate39: Option[ReferenceConversionRate4839],
+    referenceConversionRateSide40: Option[ReferenceConversionRateSide4840],
+    referenceConversionRatePercentDiff41: Option[ReferenceConversionRatePercentDiff4841],
+    POSPostalCode42: Option[POSPostalCode4842],
+    additionalFraudData4843: Option[AdditionalFraudData4843]
 )
 
 object PrivateData48 {
@@ -83,6 +92,15 @@ object PrivateData48 {
       .typecase("32", "MerchantId32" | MerchantId4832.codec)
       .typecase("33", "FinancialNetworkCode33" | FinancialNetworkCode4833.codec)
       .typecase("34", "BanknetReferenceNumber34" | BanknetReferenceNumber4834.codec)
+      .typecase("35", "RecurringPaymentIndicator35" | RecurringPaymentIndicator4835.codec)
+      .typecase("36", "FinalAuthorizationIndicator36" | FinalAuthorizationIndicator4836.codec)
+      .typecase("37", "TransitTransactionTypeIdentifier37" | TransitTransactionTypeIdentifier4837.codec)
+      .typecase("38", "TransportationModeIndicator38" | TransportationModeIndicator4838.codec)
+      .typecase("39", "ReferenceConversionRate39" | ReferenceConversionRate4839.codec)
+      .typecase("40", "ReferenceConversionRateSide40" | ReferenceConversionRateSide4840.codec)
+      .typecase("41", "ReferenceConversionRatePercentDiff41" | ReferenceConversionRatePercentDiff4841.codec)
+      .typecase("42", "POSPostalCode42" | POSPostalCode4842.codec)
+      .typecase("43", "AdditionalFraudData43" | AdditionalFraudData4843.codec)
 
   val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
     fields =>
@@ -120,7 +138,16 @@ object PrivateData48 {
         fields.collectFirst { case t: LocalMerchantCategoryCode4831 => t },
         fields.collectFirst { case t: MerchantId4832 => t },
         fields.collectFirst { case t: FinancialNetworkCode4833 => t },
-        fields.collectFirst { case t: BanknetReferenceNumber4834 => t }
+        fields.collectFirst { case t: BanknetReferenceNumber4834 => t },
+        fields.collectFirst { case t: RecurringPaymentIndicator4835 => t },
+        fields.collectFirst { case t: FinalAuthorizationIndicator4836 => t },
+        fields.collectFirst { case t: TransitTransactionTypeIdentifier4837 => t },
+        fields.collectFirst { case t: TransportationModeIndicator4838 => t },
+        fields.collectFirst { case t: ReferenceConversionRate4839 => t },
+        fields.collectFirst { case t: ReferenceConversionRateSide4840 => t },
+        fields.collectFirst { case t: ReferenceConversionRatePercentDiff4841 => t },
+        fields.collectFirst { case t: POSPostalCode4842 => t },
+        fields.collectFirst { case t: AdditionalFraudData4843 => t }
       ),
     pd =>
       List.concat(
@@ -157,7 +184,16 @@ object PrivateData48 {
         pd.localMerchantCategoryCode31,
         pd.merchantId32,
         pd.financialNetworkCode33,
-        pd.banknetReferenceNumber34
+        pd.banknetReferenceNumber34,
+        pd.recurringPaymentIndicator35,
+        pd.finalAuthorizationIndicator36,
+        pd.transitTransactionTypeIdentifier37,
+        pd.transportationModeIndicator38,
+        pd.referenceConversionRate39,
+        pd.referenceConversionRateSide40,
+        pd.referenceConversionRatePercentDiff41,
+        pd.POSPostalCode42,
+        pd.additionalFraudData4843
       )
   )
 

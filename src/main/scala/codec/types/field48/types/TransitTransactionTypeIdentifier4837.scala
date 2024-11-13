@@ -1,0 +1,125 @@
+package codec.types.field48.types
+
+import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.types.field48.PrivateData48XX
+import codec.types.field48.types.TransitTransactionTypeIdentifier4837.TransitTransactionTypeIdentifier
+import enumeratum.values.{ StringEnum, StringEnumEntry }
+import scodec.Codec
+import scodec.codecs.*
+import scodec.TransformSyntax
+
+case class TransitTransactionTypeIdentifier4837(`type`: TransitTransactionTypeIdentifier) extends PrivateData48XX
+
+object TransitTransactionTypeIdentifier4837 {
+
+  sealed abstract class TransitTransactionTypeIdentifier(val value: String) extends StringEnumEntry
+
+  object TransitTransactionTypeIdentifier extends StringEnum[TransitTransactionTypeIdentifier] {
+    val values = findValues
+
+    case object PREFUNDED                     extends TransitTransactionTypeIdentifier("01")
+    case object REAL_TIME_AUTHORIZED          extends TransitTransactionTypeIdentifier("02")
+    case object POST_AUTHORIZED_AGG           extends TransitTransactionTypeIdentifier("03")
+    case object AUTHORIZED_AGG_SPLIT_CLEARING extends TransitTransactionTypeIdentifier("04")
+    case object OTHER                         extends TransitTransactionTypeIdentifier("05")
+    case object POST_AUTHORIZED_AGG_MAESTRO   extends TransitTransactionTypeIdentifier("06")
+    case object DEBT_RECOVERY                 extends TransitTransactionTypeIdentifier("07")
+    case object RFU08                         extends TransitTransactionTypeIdentifier("08")
+    case object RFU09                         extends TransitTransactionTypeIdentifier("09")
+    case object RFU10                         extends TransitTransactionTypeIdentifier("10")
+    case object RFU11                         extends TransitTransactionTypeIdentifier("11")
+    case object RFU12                         extends TransitTransactionTypeIdentifier("12")
+    case object RFU13                         extends TransitTransactionTypeIdentifier("13")
+    case object RFU14                         extends TransitTransactionTypeIdentifier("14")
+    case object RFU15                         extends TransitTransactionTypeIdentifier("15")
+    case object RFU16                         extends TransitTransactionTypeIdentifier("16")
+    case object RFU17                         extends TransitTransactionTypeIdentifier("17")
+    case object RFU18                         extends TransitTransactionTypeIdentifier("18")
+    case object RFU19                         extends TransitTransactionTypeIdentifier("19")
+    case object RFU20                         extends TransitTransactionTypeIdentifier("20")
+    case object RFU21                         extends TransitTransactionTypeIdentifier("21")
+    case object RFU22                         extends TransitTransactionTypeIdentifier("22")
+    case object RFU23                         extends TransitTransactionTypeIdentifier("23")
+    case object RFU24                         extends TransitTransactionTypeIdentifier("24")
+    case object RFU25                         extends TransitTransactionTypeIdentifier("25")
+    case object RFU26                         extends TransitTransactionTypeIdentifier("26")
+    case object RFU27                         extends TransitTransactionTypeIdentifier("27")
+    case object RFU28                         extends TransitTransactionTypeIdentifier("28")
+    case object RFU29                         extends TransitTransactionTypeIdentifier("29")
+    case object RFU30                         extends TransitTransactionTypeIdentifier("30")
+    case object RFU31                         extends TransitTransactionTypeIdentifier("31")
+    case object RFU32                         extends TransitTransactionTypeIdentifier("32")
+    case object RFU33                         extends TransitTransactionTypeIdentifier("33")
+    case object RFU34                         extends TransitTransactionTypeIdentifier("34")
+    case object RFU35                         extends TransitTransactionTypeIdentifier("35")
+    case object RFU36                         extends TransitTransactionTypeIdentifier("36")
+    case object RFU37                         extends TransitTransactionTypeIdentifier("37")
+    case object RFU38                         extends TransitTransactionTypeIdentifier("38")
+    case object RFU39                         extends TransitTransactionTypeIdentifier("39")
+    case object RFU40                         extends TransitTransactionTypeIdentifier("40")
+    case object RFU41                         extends TransitTransactionTypeIdentifier("41")
+    case object RFU42                         extends TransitTransactionTypeIdentifier("42")
+    case object RFU43                         extends TransitTransactionTypeIdentifier("43")
+    case object RFU44                         extends TransitTransactionTypeIdentifier("44")
+    case object RFU45                         extends TransitTransactionTypeIdentifier("45")
+    case object RFU46                         extends TransitTransactionTypeIdentifier("46")
+    case object RFU47                         extends TransitTransactionTypeIdentifier("47")
+    case object RFU48                         extends TransitTransactionTypeIdentifier("48")
+    case object RFU49                         extends TransitTransactionTypeIdentifier("49")
+    case object RFU50                         extends TransitTransactionTypeIdentifier("50")
+    case object RFU51                         extends TransitTransactionTypeIdentifier("51")
+    case object RFU52                         extends TransitTransactionTypeIdentifier("52")
+    case object RFU53                         extends TransitTransactionTypeIdentifier("53")
+    case object RFU54                         extends TransitTransactionTypeIdentifier("54")
+    case object RFU55                         extends TransitTransactionTypeIdentifier("55")
+    case object RFU56                         extends TransitTransactionTypeIdentifier("56")
+    case object RFU57                         extends TransitTransactionTypeIdentifier("57")
+    case object RFU58                         extends TransitTransactionTypeIdentifier("58")
+    case object RFU59                         extends TransitTransactionTypeIdentifier("59")
+    case object RFU60                         extends TransitTransactionTypeIdentifier("60")
+    case object RFU61                         extends TransitTransactionTypeIdentifier("61")
+    case object RFU62                         extends TransitTransactionTypeIdentifier("62")
+    case object RFU63                         extends TransitTransactionTypeIdentifier("63")
+    case object RFU64                         extends TransitTransactionTypeIdentifier("64")
+    case object RFU65                         extends TransitTransactionTypeIdentifier("65")
+    case object RFU66                         extends TransitTransactionTypeIdentifier("66")
+    case object RFU67                         extends TransitTransactionTypeIdentifier("67")
+    case object RFU68                         extends TransitTransactionTypeIdentifier("68")
+    case object RFU69                         extends TransitTransactionTypeIdentifier("69")
+    case object RFU70                         extends TransitTransactionTypeIdentifier("70")
+    case object RFU71                         extends TransitTransactionTypeIdentifier("71")
+    case object RFU72                         extends TransitTransactionTypeIdentifier("72")
+    case object RFU73                         extends TransitTransactionTypeIdentifier("73")
+    case object RFU74                         extends TransitTransactionTypeIdentifier("74")
+    case object RFU75                         extends TransitTransactionTypeIdentifier("75")
+    case object RFU76                         extends TransitTransactionTypeIdentifier("76")
+    case object RFU77                         extends TransitTransactionTypeIdentifier("77")
+    case object RFU78                         extends TransitTransactionTypeIdentifier("78")
+    case object RFU79                         extends TransitTransactionTypeIdentifier("79")
+    case object RFU80                         extends TransitTransactionTypeIdentifier("80")
+    case object RFU81                         extends TransitTransactionTypeIdentifier("81")
+    case object RFU82                         extends TransitTransactionTypeIdentifier("82")
+    case object RFU83                         extends TransitTransactionTypeIdentifier("83")
+    case object RFU84                         extends TransitTransactionTypeIdentifier("84")
+    case object RFU85                         extends TransitTransactionTypeIdentifier("85")
+    case object RFU86                         extends TransitTransactionTypeIdentifier("86")
+    case object RFU87                         extends TransitTransactionTypeIdentifier("87")
+    case object RFU88                         extends TransitTransactionTypeIdentifier("88")
+    case object RFU89                         extends TransitTransactionTypeIdentifier("89")
+    case object RFU90                         extends TransitTransactionTypeIdentifier("90")
+    case object RFU91                         extends TransitTransactionTypeIdentifier("91")
+    case object RFU92                         extends TransitTransactionTypeIdentifier("92")
+    case object RFU93                         extends TransitTransactionTypeIdentifier("93")
+    case object RFU94                         extends TransitTransactionTypeIdentifier("94")
+    case object RFU95                         extends TransitTransactionTypeIdentifier("95")
+    case object RFU96                         extends TransitTransactionTypeIdentifier("96")
+    case object RFU97                         extends TransitTransactionTypeIdentifier("97")
+    case object RFU98                         extends TransitTransactionTypeIdentifier("98")
+    case object RFU99                         extends TransitTransactionTypeIdentifier("99")
+
+    val mapping = TransitTransactionTypeIdentifier.valuesToEntriesMap.map(_.swap)
+    val codec   = "TransitTransactionTypeIdentifier" | mappedEnum(N, mapping)
+  }
+
+  val codec: Codec[TransitTransactionTypeIdentifier4837] = LLVAR_N(TransitTransactionTypeIdentifier.codec).as[TransitTransactionTypeIdentifier4837]
+}
