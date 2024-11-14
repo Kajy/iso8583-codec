@@ -1,6 +1,6 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.TLV_N
+import codec.FieldCodecs.LLVAR_N
 import codec.types.field48.PrivateData48XX
 import scodec.*
 
@@ -8,8 +8,8 @@ case class PersistentFxEligibleIndicator4846(isEligible: Boolean) extends Privat
 
 object PersistentFxEligibleIndicator4846 {
 
-  val codec: Codec[PersistentFxEligibleIndicator4846] = TLV_N(1)
-    .xmap[Boolean](_ > 0, b => if (b) 1 else 0)
+  val codec: Codec[PersistentFxEligibleIndicator4846] = LLVAR_N
+    .xmap[Boolean](_ != "00", b => if (b) "01" else "00")
     .as[PersistentFxEligibleIndicator4846]
 
 }

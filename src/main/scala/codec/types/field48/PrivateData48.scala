@@ -55,6 +55,13 @@ case class PrivateData48(
     rateTableId45: Option[RateTableId4845],
     persistentFxEligibleIndicator46: Option[PersistentFxEligibleIndicator4846],
     persistentFxAppliedIndicator47: Option[PersistentFxAppliedIndicator4847],
+    fraudScoringData48: Option[FraudScoringData4848],
+    securityServicesAdditionalData49: Option[SecurityServicesAdditionalData4849],
+    merchantAdviceCode50: Option[MerchantAdviceCode4850],
+    uniqueTransactionIdentifier52: Option[UniqueTransactionIdentifier4852],
+    transactionLinkIdentifier53: Option[TransactionLinkIdentifier4853],
+    matchKey54: Option[MatchKey4854],
+    eCommerceAuthentificationType55: Option[ECommerceAuthentificationType4855]
 )
 
 object PrivateData48 {
@@ -109,6 +116,13 @@ object PrivateData48 {
       .typecase("45", "RateTableId45" | RateTableId4845.codec)
       .typecase("46", "PersistentFxEligibleIndicator46" | PersistentFxEligibleIndicator4846.codec)
       .typecase("47", "PersistentFxAppliedIndicator47" | PersistentFxAppliedIndicator4847.codec)
+      .typecase("48", "FraudScoringData48" | FraudScoringData4848.codec)
+      .typecase("49", "SecurityServicesAdditionalData49" | SecurityServicesAdditionalData4849.codec)
+      .typecase("50", "MerchantAdviceCode50" | MerchantAdviceCode4850.codec)
+      .typecase("52", "UniqueTransactionIdentifier52" | UniqueTransactionIdentifier4852.codec)
+      .typecase("53", "TransactionLinkIdentifier53" | TransactionLinkIdentifier4853.codec)
+      .typecase("54", "MatchKey54" | MatchKey4854.codec)
+      .typecase("55", "ECommerceAuthentificationType55" | ECommerceAuthentificationType4855.codec)
 
   val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
     fields =>
@@ -160,6 +174,13 @@ object PrivateData48 {
         fields.collectFirst { case t: RateTableId4845 => t },
         fields.collectFirst { case t: PersistentFxEligibleIndicator4846 => t },
         fields.collectFirst { case t: PersistentFxAppliedIndicator4847 => t },
+        fields.collectFirst { case t: FraudScoringData4848 => t },
+        fields.collectFirst { case t: SecurityServicesAdditionalData4849 => t },
+        fields.collectFirst { case t: MerchantAdviceCode4850 => t },
+        fields.collectFirst { case t: UniqueTransactionIdentifier4852 => t },
+        fields.collectFirst { case t: TransactionLinkIdentifier4853 => t },
+        fields.collectFirst { case t: MatchKey4854 => t },
+        fields.collectFirst { case t: ECommerceAuthentificationType4855 => t }
       ),
     pd =>
       List.concat(
@@ -210,6 +231,13 @@ object PrivateData48 {
         pd.rateTableId45,
         pd.persistentFxEligibleIndicator46,
         pd.persistentFxAppliedIndicator47,
+        pd.fraudScoringData48,
+        pd.securityServicesAdditionalData49,
+        pd.merchantAdviceCode50,
+        pd.uniqueTransactionIdentifier52,
+        pd.transactionLinkIdentifier53,
+        pd.matchKey54,
+        pd.eCommerceAuthentificationType55
       )
   )
 
