@@ -1,4 +1,4 @@
-package codec.types
+package codec.types.field43
 
 import codec.FieldCodecs.ANS
 import scodec.{ Codec, TransformSyntax }

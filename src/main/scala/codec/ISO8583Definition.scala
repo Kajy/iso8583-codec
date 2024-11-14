@@ -2,6 +2,12 @@ package codec
 
 import codec.FieldCodecs.*
 import codec.types.*
+import codec.types.field22.ReadingMode22
+import codec.types.field25.POSConditionCode25
+import codec.types.field3.ProcessingCode03
+import codec.types.field39.ResponseCode39
+import codec.types.field43.AcceptorInfos43
+import codec.types.field44.AdviceDetail44
 import codec.types.field47.AdditionalData47
 import codec.types.field48.PrivateData48
 import scodec.codecs.*

@@ -1,4 +1,4 @@
-package codec.types
+package codec.types.field3
 
 import enumeratum.{Enum, EnumEntry}
 import scodec.bits.{ByteVector, HexStringSyntax}

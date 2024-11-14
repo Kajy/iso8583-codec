@@ -1,10 +1,10 @@
 package codec.types.field46.field1.types
 
 import codec.FieldCodecs.{AN, LLVAR}
-import codec.types.TokenData4601XX
+import codec.types.field46.field1.TokenData4601XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
+import scodec.{Codec, TransformSyntax}
 
 case class Status460108(status: Status460108.Status) extends TokenData4601XX
 

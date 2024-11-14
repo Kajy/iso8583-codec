@@ -1,7 +1,7 @@
 package codec.types.field46.field2.types
 
 import codec.FieldCodecs.LLVAR_N
-import codec.types.WalletData4602XX
+import codec.types.field46.field2.WalletData4602XX
 import scodec.{Codec, TransformSyntax}
 
 case class ProviderAccountScore460203(score: String) extends WalletData4602XX

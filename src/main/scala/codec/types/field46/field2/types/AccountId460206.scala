@@ -1,7 +1,7 @@
 package codec.types.field46.field2.types
 
 import codec.FieldCodecs.LLVAR_AN
-import codec.types.WalletData4602XX
+import codec.types.field46.field2.WalletData4602XX
 import scodec.{Codec, TransformSyntax}
 
 case class AccountId460206(id: String) extends WalletData4602XX

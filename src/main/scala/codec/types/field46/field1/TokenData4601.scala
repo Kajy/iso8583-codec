@@ -1,6 +1,7 @@
-package codec.types
+package codec.types.field46.field1
 
 import codec.FieldCodecs.*
+import codec.types.WalletInfos46XX
 import codec.types.field46.field1.types.*
 import scodec.Codec
 import scodec.codecs.{ discriminated, list }

@@ -1,4 +1,4 @@
-package codec.types
+package codec.types.field44
 
 import codec.FieldCodecs.*
 import scodec.Codec
@@ -13,7 +13,8 @@ case class AdviceDetail44(
 }
 
 object AdviceDetail44 {
-  val codec: Codec[AdviceDetail44] = list(TVL(AN(2), AN_INT(2), AN))
+
+  val codec: Codec[AdviceDetail44] = list(TLV(AN(2), AN_INT(2), AN))
     .xmap(
       fields => {
         val RA = fields.find(_._1 == "RA").map(_._2)
@@ -29,4 +30,5 @@ object AdviceDetail44 {
           ad.RC.map("RC" -> _)
         )
     )
+
 }

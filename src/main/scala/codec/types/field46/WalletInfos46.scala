@@ -1,6 +1,8 @@
 package codec.types
 
 import codec.FieldCodecs.*
+import codec.types.field46.field1.TokenData4601
+import codec.types.field46.field2.WalletData4602
 import codec.types.field46.field3.DeviceData4603
 import codec.types.field46.field4.OtherData4604
 import scodec.Codec

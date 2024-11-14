@@ -1,4 +1,4 @@
-package codec.types
+package codec.types.field39
 
 import codec.FieldCodecs.AN
 import enumeratum.values.{StringEnum, StringEnumEntry}

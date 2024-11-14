@@ -2,10 +2,16 @@ package codec.types
 
 import codec.BitMap.Fields
 import codec.MessageType
+import codec.types.field22.ReadingMode22
+import codec.types.field25.POSConditionCode25
+import codec.types.field3.ProcessingCode03
+import codec.types.field39.ResponseCode39
+import codec.types.field43.AcceptorInfos43
+import codec.types.field44.AdviceDetail44
 import codec.types.field47.AdditionalData47
 
 import java.time.format.DateTimeFormatter
-import java.time.{LocalTime, MonthDay, YearMonth}
+import java.time.{ LocalTime, MonthDay, YearMonth }
 
 case class ISO8583(
     msgType: MessageType,

@@ -50,7 +50,11 @@ case class PrivateData48(
     referenceConversionRateSide40: Option[ReferenceConversionRateSide4840],
     referenceConversionRatePercentDiff41: Option[ReferenceConversionRatePercentDiff4841],
     POSPostalCode42: Option[POSPostalCode4842],
-    additionalFraudData4843: Option[AdditionalFraudData4843]
+    additionalFraudData43: Option[AdditionalFraudData4843],
+    exchangeRateProvider44: Option[ExchangeRateProvider4844],
+    rateTableId45: Option[RateTableId4845],
+    persistentFxEligibleIndicator46: Option[PersistentFxEligibleIndicator4846],
+    persistentFxAppliedIndicator47: Option[PersistentFxAppliedIndicator4847],
 )
 
 object PrivateData48 {
@@ -101,6 +105,10 @@ object PrivateData48 {
       .typecase("41", "ReferenceConversionRatePercentDiff41" | ReferenceConversionRatePercentDiff4841.codec)
       .typecase("42", "POSPostalCode42" | POSPostalCode4842.codec)
       .typecase("43", "AdditionalFraudData43" | AdditionalFraudData4843.codec)
+      .typecase("44", "ExchangeRateProvider44" | ExchangeRateProvider4844.codec)
+      .typecase("45", "RateTableId45" | RateTableId4845.codec)
+      .typecase("46", "PersistentFxEligibleIndicator46" | PersistentFxEligibleIndicator4846.codec)
+      .typecase("47", "PersistentFxAppliedIndicator47" | PersistentFxAppliedIndicator4847.codec)
 
   val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
     fields =>
@@ -147,7 +155,11 @@ object PrivateData48 {
         fields.collectFirst { case t: ReferenceConversionRateSide4840 => t },
         fields.collectFirst { case t: ReferenceConversionRatePercentDiff4841 => t },
         fields.collectFirst { case t: POSPostalCode4842 => t },
-        fields.collectFirst { case t: AdditionalFraudData4843 => t }
+        fields.collectFirst { case t: AdditionalFraudData4843 => t },
+        fields.collectFirst { case t: ExchangeRateProvider4844 => t },
+        fields.collectFirst { case t: RateTableId4845 => t },
+        fields.collectFirst { case t: PersistentFxEligibleIndicator4846 => t },
+        fields.collectFirst { case t: PersistentFxAppliedIndicator4847 => t },
       ),
     pd =>
       List.concat(
@@ -193,7 +205,11 @@ object PrivateData48 {
         pd.referenceConversionRateSide40,
         pd.referenceConversionRatePercentDiff41,
         pd.POSPostalCode42,
-        pd.additionalFraudData4843
+        pd.additionalFraudData43,
+        pd.exchangeRateProvider44,
+        pd.rateTableId45,
+        pd.persistentFxEligibleIndicator46,
+        pd.persistentFxAppliedIndicator47,
       )
   )
 

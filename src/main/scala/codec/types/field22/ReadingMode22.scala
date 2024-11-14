@@ -1,7 +1,7 @@
-package codec.types
+package codec.types.field22
 
 import codec.FieldCodecs.N
-import codec.types.ReadingMode22.*
+import codec.types.field22.ReadingMode22.{ CardReadingMode, PinEntryMode }
 import enumeratum.values.{ StringEnum, StringEnumEntry }
 import scodec.codecs.mappedEnum
 import scodec.{ Codec, TransformSyntax, ValueCodecEnrichedWithHListSupport }

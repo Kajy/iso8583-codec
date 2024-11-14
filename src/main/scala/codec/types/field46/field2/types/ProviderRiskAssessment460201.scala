@@ -1,10 +1,10 @@
 package codec.types.field46.field2.types
 
 import codec.FieldCodecs.{AN, LLVAR}
-import codec.types.WalletData4602XX
+import codec.types.field46.field2.WalletData4602XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
+import scodec.{Codec, TransformSyntax}
 
 case class ProviderRiskAssessment460201(
     decisionStatus: ProviderRiskAssessment460201.Status
