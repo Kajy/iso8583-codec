@@ -10,6 +10,10 @@ import codec.types.field43.AcceptorInfos43
 import codec.types.field44.AdviceDetail44
 import codec.types.field47.AdditionalData47
 import codec.types.field48.PrivateData48
+import codec.types.field49.TransactionCurrency49
+import codec.types.field51.BillingCurrency51
+import codec.types.field53.SecurityInformation53
+import codec.types.field54.AdditionalAmounts54
 import scodec.codecs.*
 
 import java.time.*
@@ -39,20 +43,24 @@ object ISO8583Definition {
     (t: YearMonth) => t.format(yearMonthFormatter)
   )
 
-  val RECONCILIATION_DATE = "Reconciliation date" | LOCAL_DATE
-  val MCC                 = "MCC" | N(4)
-  val READING_MODE        = "Reading mode" | ReadingMode22.codec
-  val PAN_SEQUENCE_NB     = "Pan sequence number" | N(4) // DOUBT should be N3
-  val POS_CONDITION_CODE  = "POS condition code" | POSConditionCode25.codec
-  val ACQUIRING_ID        = "Acquiring ID" | LLVAR_N
-  val RETRIEVAL_REF_NB    = "Retrieval Reference Number" | AN(12)
-  val AUTHORIZATION_NB    = "Authorization Number" | AN(6)
-  val RESPONSE_CODE       = "Response Code" | ResponseCode39.codec
-  val TERMINAL_ID         = "Terminal ID" | ANS(8)
-  val ACCEPTOR_ID         = "Acceptor ID" | ANS(15)
-  val ACCEPTOR_NAME_ADDR  = "Acceptor name and address" | AcceptorInfos43.codec
-  val ADVICE_ADD_DATA     = "Advice additional data" | LLVAR(AdviceDetail44.codec)
-  val WALLET_DATA_INFOS   = "Wallet data infos" | LLLVAR(WalletInfos46.codec)
-  val ADDITIONAL_DATA     = "Additional data" | LLVAR(AdditionalData47.codec)
-  val PRIVATE_DATA        = "Private data" | LLLVAR(PrivateData48.codec)
+  val RECONCILIATION_DATE  = "Reconciliation date" | LOCAL_DATE
+  val MCC                  = "MCC" | N(4)
+  val READING_MODE         = "Reading mode" | ReadingMode22.codec
+  val PAN_SEQUENCE_NB      = "Pan sequence number" | N(4)
+  val POS_CONDITION_CODE   = "POS condition code" | POSConditionCode25.codec
+  val ACQUIRING_ID         = "Acquiring ID" | LLVAR_N
+  val RETRIEVAL_REF_NB     = "Retrieval Reference Number" | AN(12)
+  val AUTHORIZATION_NB     = "Authorization Number" | AN(6)
+  val RESPONSE_CODE        = "Response Code" | ResponseCode39.codec
+  val TERMINAL_ID          = "Terminal ID" | ANS(8)
+  val ACCEPTOR_ID          = "Acceptor ID" | ANS(15)
+  val ACCEPTOR_NAME_ADDR   = "Acceptor name and address" | AcceptorInfos43.codec
+  val ADVICE_ADD_DATA      = "Advice additional data" | LLVAR(AdviceDetail44.codec)
+  val WALLET_DATA_INFOS    = "Wallet data infos" | LLLVAR(WalletInfos46.codec)
+  val ADDITIONAL_DATA      = "Additional data" | LLVAR(AdditionalData47.codec)
+  val PRIVATE_DATA         = "Private data" | LLLVAR(PrivateData48.codec)
+  val TRANSACTION_CURRENCY = "Transaction currency" | TransactionCurrency49.codec
+  val BILLING_CURRENCY     = "Billing currency" | BillingCurrency51.codec
+  val SECURITY_INFORMATION = "Security information" | SecurityInformation53.codec
+  val ADDITIONAL_AMOUNTS = "Additional amounts" | AdditionalAmounts54.codec
 }

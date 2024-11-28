@@ -3,8 +3,8 @@ package codec.types.field48.types
 import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.*
+import scodec.{Codec, TransformSyntax}
 
 case class OperationType4801(code: OperationType4801.OperationType)
     extends PrivateData48XX

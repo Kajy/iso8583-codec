@@ -2,9 +2,9 @@ package codec.types.field46.field2.types
 
 import codec.FieldCodecs.LLVAR_N
 import codec.types.field46.field2.WalletData4602XX
-import enumeratum.values.{ StringEnum, StringEnumEntry }
+import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.codecs.mappedEnum
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class XPayId460207(id: XPayId460207.XPayId) extends WalletData4602XX
 

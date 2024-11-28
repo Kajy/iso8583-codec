@@ -1,9 +1,9 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ AN, LLVAR, LLVAR_ANS, N }
+import codec.FieldCodecs.{AN, LLVAR, LLVAR_ANS, N}
 import codec.types.field48.PrivateData48XX
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class UniqueTransactionIdentifier4852(
     tidNomenclature01: Option[TIDNomenclature485201],

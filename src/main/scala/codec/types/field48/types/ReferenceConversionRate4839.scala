@@ -3,7 +3,7 @@ package codec.types.field48.types
 import cats.syntax.apply.*
 import codec.FieldCodecs.LLVAR_N
 import codec.types.field48.PrivateData48XX
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 import scala.math.pow
 

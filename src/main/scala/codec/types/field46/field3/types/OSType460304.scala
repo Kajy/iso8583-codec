@@ -3,8 +3,8 @@ package codec.types.field46.field3.types
 import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field46.field3.DeviceData4603XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.mappedEnum
+import scodec.{Codec, TransformSyntax}
 
 case class OSType460304(
     `type`: OSType460304.Type

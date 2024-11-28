@@ -2,7 +2,7 @@ package codec.types.field48.types
 
 import codec.FieldCodecs.LLVAR_ANS
 import codec.types.field48.PrivateData48XX
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class ProtocolVersion4825(
     version: String

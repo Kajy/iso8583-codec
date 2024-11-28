@@ -1,10 +1,10 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
-import enumeratum.values.{ StringEnum, StringEnumEntry }
+import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class OriginTransactionNetwork4807(network: OriginTransactionNetwork4807.Network)
     extends PrivateData48XX

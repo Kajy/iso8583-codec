@@ -1,10 +1,10 @@
 package codec.types.field22
 
 import codec.FieldCodecs.N
-import codec.types.field22.ReadingMode22.{ CardReadingMode, PinEntryMode }
-import enumeratum.values.{ StringEnum, StringEnumEntry }
+import codec.types.field22.ReadingMode22.{CardReadingMode, PinEntryMode}
+import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.codecs.mappedEnum
-import scodec.{ Codec, TransformSyntax, ValueCodecEnrichedWithHListSupport }
+import scodec.{Codec, TransformSyntax, ValueCodecEnrichedWithHListSupport}
 
 case class ReadingMode22(
     cardReadingMode: CardReadingMode,

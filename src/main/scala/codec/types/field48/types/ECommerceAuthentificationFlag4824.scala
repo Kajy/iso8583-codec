@@ -1,10 +1,10 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import enumeratum.values.*
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class ECommerceAuthentificationFlag4824(
     flag: ECommerceAuthentificationFlag4824.AuthentificationFlag

@@ -1,10 +1,10 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import enumeratum.values.*
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class TransactionCategoryCode4822(
     categoryCode: TransactionCategoryCode4822.TransactionCategoryCode

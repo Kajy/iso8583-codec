@@ -2,7 +2,7 @@ package codec.types.field48.types
 
 import codec.FieldCodecs.TLV_N
 import codec.types.field48.PrivateData48XX
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class AccountingPeriodNb4809(periodNb: Long) extends PrivateData48XX
 

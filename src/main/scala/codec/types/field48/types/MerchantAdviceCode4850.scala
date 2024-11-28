@@ -1,11 +1,11 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import codec.types.field48.types.MerchantAdviceCode4850.MerchantAdviceCode
 import enumeratum.values.*
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class MerchantAdviceCode4850(code: MerchantAdviceCode) extends PrivateData48XX
 

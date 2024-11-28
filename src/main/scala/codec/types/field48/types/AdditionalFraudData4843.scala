@@ -1,11 +1,11 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR, LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR, LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import codec.types.field48.types.FraudType484302.FraudType
-import enumeratum.values.{ StringEnum, StringEnumEntry }
+import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class AdditionalFraudData4843(
     fraudRuleReference01: Option[FraudRuleReference484301],

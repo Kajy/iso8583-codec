@@ -3,8 +3,8 @@ package codec.types.field48.types
 import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import enumeratum.values.*
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.*
+import scodec.{Codec, TransformSyntax}
 
 case class TerminalPartialAuthorSupport4806(
     `type`: TerminalPartialAuthorSupport4806.TerminalSupport

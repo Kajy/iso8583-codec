@@ -1,10 +1,10 @@
 package codec.types.field46.field3
 
-import codec.FieldCodecs.{ LLVAR, N }
+import codec.FieldCodecs.{LLVAR, N}
 import codec.types.WalletInfos46XX
 import codec.types.field46.field3.types.*
 import scodec.Codec
-import scodec.codecs.{ discriminated, list }
+import scodec.codecs.{discriminated, list}
 
 trait DeviceData4603XX
 

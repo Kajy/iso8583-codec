@@ -3,8 +3,8 @@ package codec.types.field46.field4.`type`
 import codec.FieldCodecs.{AN, LLVAR}
 import codec.types.field46.field4.OtherData4604XX
 import enumeratum.values.{StringEnum, StringEnumEntry}
-import scodec.{Codec, TransformSyntax}
 import scodec.codecs.*
+import scodec.{Codec, TransformSyntax}
 
 case class CVX2Result460404(value: CVX2Result460404.Result)
     extends OtherData4604XX

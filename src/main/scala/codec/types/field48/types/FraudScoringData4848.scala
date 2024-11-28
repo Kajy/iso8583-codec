@@ -1,9 +1,9 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR, LLVAR_AN, N }
+import codec.FieldCodecs.{LLVAR, LLVAR_AN, N}
 import codec.types.field48.PrivateData48XX
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class FraudScoringData4848(
     fraudScore01: Option[FraudScore484801],

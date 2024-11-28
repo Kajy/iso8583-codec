@@ -4,12 +4,7 @@ import codec.BitMap.*
 import codec.ISO8583Definition.*
 import codec.types.ISO8583
 import scodec.codecs.*
-import scodec.{
-  Codec,
-  HListCodecEnrichedWithHListSupport,
-  TransformSyntax,
-  ValueCodecEnrichedWithHListSupport
-}
+import scodec.{ Codec, HListCodecEnrichedWithHListSupport, TransformSyntax, ValueCodecEnrichedWithHListSupport }
 
 object ISO8583Codec {
 
@@ -46,8 +41,12 @@ object ISO8583Codec {
           conditional(fields.isPresent(43), ACCEPTOR_NAME_ADDR) ::
           conditional(fields.isPresent(44), ADVICE_ADD_DATA) ::
           conditional(fields.isPresent(46), WALLET_DATA_INFOS) ::
-          conditional(fields.isPresent(47), ADDITIONAL_DATA) // ::
-        // conditional(fields.isPresent(48), PRIVATE_DATA)
+          conditional(fields.isPresent(47), ADDITIONAL_DATA) ::
+          conditional(fields.isPresent(48), PRIVATE_DATA) ::
+          conditional(fields.isPresent(49), TRANSACTION_CURRENCY) ::
+          conditional(fields.isPresent(51), BILLING_CURRENCY) ::
+          conditional(fields.isPresent(53), SECURITY_INFORMATION) ::
+          conditional(fields.isPresent(54), ADDITIONAL_AMOUNTS)
       })).as[ISO8583]
 
   val CODEC: Codec[ISO8583] = variableSizeBytesLong(uint32, ISO_8583_CODEC)

@@ -1,10 +1,10 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
-import enumeratum.values.{ StringEnum, StringEnumEntry }
+import enumeratum.values.{StringEnum, StringEnumEntry}
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 case class DeviceType4813(device: DeviceType4813.Device) extends PrivateData48XX
 

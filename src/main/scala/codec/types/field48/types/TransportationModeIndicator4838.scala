@@ -1,12 +1,11 @@
 package codec.types.field48.types
 
-import codec.FieldCodecs.{ LLVAR_N, N }
+import codec.FieldCodecs.{LLVAR_N, N}
 import codec.types.field48.PrivateData48XX
 import codec.types.field48.types.TransportationModeIndicator4838.TransportationModeIndicator
-import enumeratum.values.{ StringEnum, StringEnumEntry }
-import scodec.Codec
+import enumeratum.values.{StringEnum, StringEnumEntry}
+import scodec.{Codec, TransformSyntax}
 import scodec.codecs.*
-import scodec.TransformSyntax
 
 case class TransportationModeIndicator4838(mode: TransportationModeIndicator) extends PrivateData48XX
 

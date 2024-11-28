@@ -1,8 +1,8 @@
 package codec
 
-import scodec.bits.{ BitVector, ByteVector }
+import scodec.bits.{BitVector, ByteVector}
 import scodec.codecs.*
-import scodec.{ Codec, TransformSyntax }
+import scodec.{Codec, TransformSyntax}
 
 import java.time.format.DateTimeFormatter
 import scala.math.max
@@ -32,6 +32,7 @@ object FieldCodecs {
 
   val LLVAR_N: Codec[String]   = variableSizeBytes(quartet, N)
   val LLVAR_AN: Codec[String]  = variableSizeBytes(int8, AN)
+  val LLVAR_HEX: Codec[ByteVector] = variableSizeBytes(int8, bytes)
   val LLLVAR_AN: Codec[String] = variableSizeBytes(int16, AN)
   val LLVAR_ANS: Codec[String] = variableSizeBytes(int8, ANS)
 

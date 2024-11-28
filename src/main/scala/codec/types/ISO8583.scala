@@ -9,6 +9,11 @@ import codec.types.field39.ResponseCode39
 import codec.types.field43.AcceptorInfos43
 import codec.types.field44.AdviceDetail44
 import codec.types.field47.AdditionalData47
+import codec.types.field48.PrivateData48
+import codec.types.field49.TransactionCurrency49
+import codec.types.field51.BillingCurrency51
+import codec.types.field53.SecurityInformation53
+import codec.types.field54.AdditionalAmounts54
 
 import java.time.format.DateTimeFormatter
 import java.time.{ LocalTime, MonthDay, YearMonth }
@@ -40,8 +45,12 @@ case class ISO8583(
     acceptorNameAddress: Option[AcceptorInfos43],
     adviceAdditionalData: Option[AdviceDetail44],
     walletDataInfos: Option[WalletInfos46],
-    additionalData: Option[AdditionalData47]
-    // privateData: Option[PrivateData48]
+    additionalData: Option[AdditionalData47],
+    privateData: Option[PrivateData48],
+    transactionCurrency: Option[TransactionCurrency49],
+    billingCurrency: Option[BillingCurrency51],
+    securityInformation: Option[SecurityInformation53],
+    additionalAmounts: Option[AdditionalAmounts54]
 ) {
 
   private val localDateFormatter = DateTimeFormatter.ofPattern("MM/dd")
@@ -74,6 +83,9 @@ case class ISO8583(
        |ACCEPTOR NAME AND ADDRESS: ${acceptorNameAddress}
        |ADVICE DETAILS: ${adviceAdditionalData}
        |WALLET DATA INFO: ${walletDataInfos}
+       |TRANSACTION CURRENCY: ${transactionCurrency}
+       |BILLING CURRENCY: ${billingCurrency}
+       |SECURITY INFORMATION: ${securityInformation}
        |""".stripMargin
 
 }

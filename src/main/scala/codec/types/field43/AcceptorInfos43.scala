@@ -1,10 +1,8 @@
 package codec.types.field43
 
 import codec.FieldCodecs.ANS
-import scodec.{ Codec, TransformSyntax }
 import scodec.codecs.ignore
-import scodec.HListCodecEnrichedWithHListSupport
-import scodec.ValueCodecEnrichedWithHListSupport
+import scodec.{Codec, HListCodecEnrichedWithHListSupport, TransformSyntax, ValueCodecEnrichedWithHListSupport}
 
 case class AcceptorInfos43(name: String, city: String, countryCode: String)
 

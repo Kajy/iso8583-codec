@@ -83,8 +83,6 @@ class PrivateData48Spec extends AnyFlatSpec with OptionValues {
         type48 ++ type49 ++ type50 ++ type52 ++ type53 ++ type54 ++
         type55
 
-    println(tokenDataHex.size / 8)
-    println(PRIVATE_DATA.decode(tokenDataHex))
     val result = PRIVATE_DATA.decode(tokenDataHex).toOption.value.value
 
     result.operationType01.value.code mustBe OperationType4801.OperationType.CREDIT
