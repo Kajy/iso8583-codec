@@ -38,21 +38,23 @@ object WalletInfos46 {
       .typecase("03", "DeviceData03" | DeviceData4603.codec)
       .typecase("04", "OtherData04" | OtherData4604.codec)
 
-  val codec: Codec[WalletInfos46] = list(subFieldsCodec).xmap(
-    fields =>
-      WalletInfos46(
-        fields.collectFirst { case t: TokenData4601 => t },
-        fields.collectFirst { case t: WalletData4602 => t },
-        fields.collectFirst { case t: DeviceData4603 => t },
-        fields.collectFirst { case t: OtherData4604 => t }
-      ),
-    wd =>
-      List.concat(
-        wd.tokenData01,
-        wd.walletData02,
-        wd.deviceData03,
-        wd.otherData04
-      )
+  val codec: Codec[WalletInfos46] = LLLVAR(
+    list(subFieldsCodec).xmap(
+      fields =>
+        WalletInfos46(
+          fields.collectFirst { case t: TokenData4601 => t },
+          fields.collectFirst { case t: WalletData4602 => t },
+          fields.collectFirst { case t: DeviceData4603 => t },
+          fields.collectFirst { case t: OtherData4604 => t }
+        ),
+      wd =>
+        List.concat(
+          wd.tokenData01,
+          wd.walletData02,
+          wd.deviceData03,
+          wd.otherData04
+        )
+    )
   )
 
 }

@@ -46,9 +46,14 @@ object ISO8583Codec {
           conditional(fields.isPresent(49), TRANSACTION_CURRENCY) ::
           conditional(fields.isPresent(51), BILLING_CURRENCY) ::
           conditional(fields.isPresent(53), SECURITY_INFORMATION) ::
-          conditional(fields.isPresent(54), ADDITIONAL_AMOUNTS)
+          conditional(fields.isPresent(54), ADDITIONAL_AMOUNTS) ::
+          conditional(fields.isPresent(55), CHIP_DATA) ::
+          conditional(fields.isPresent(64), MAC_AUTH_DATA) ::
+          conditional(fields.isPresent(90), ORIGINAL_DATA_ELEMENTS) ::
+          conditional(fields.isPresent(95), REPLACEMENT_AMOUNT)
+
       })).as[ISO8583]
 
-  val CODEC: Codec[ISO8583] = variableSizeBytesLong(uint32, ISO_8583_CODEC)
+  val CODEC: Codec[ISO8583] = variableSizeBytes(int32, ISO_8583_CODEC)
 
 }

@@ -1,6 +1,6 @@
 package codec.types.field48
 
-import codec.FieldCodecs.N
+import codec.FieldCodecs.{LLLVAR, N}
 import codec.types.field48.types.*
 import scodec.Codec
 import scodec.codecs.*
@@ -124,7 +124,7 @@ object PrivateData48 {
       .typecase("54", "MatchKey54" | MatchKey4854.codec)
       .typecase("55", "ECommerceAuthentificationType55" | ECommerceAuthentificationType4855.codec)
 
-  val codec: Codec[PrivateData48] = list(subFieldCodec).xmap(
+  val codec: Codec[PrivateData48] = LLLVAR(list(subFieldCodec).xmap(
     fields =>
       PrivateData48(
         fields.collectFirst { case t: OperationType4801 => t },
@@ -239,6 +239,6 @@ object PrivateData48 {
         pd.matchKey54,
         pd.eCommerceAuthentificationType55
       )
-  )
+  ))
 
 }

@@ -14,6 +14,10 @@ import codec.types.field49.TransactionCurrency49
 import codec.types.field51.BillingCurrency51
 import codec.types.field53.SecurityInformation53
 import codec.types.field54.AdditionalAmounts54
+import codec.types.field55.ChipData55
+import codec.types.field64.MacAuthentificationData64
+import codec.types.field90.OriginalDataElements90
+import codec.types.field95.ReplacementAmount95
 
 import java.time.format.DateTimeFormatter
 import java.time.{ LocalTime, MonthDay, YearMonth }
@@ -50,7 +54,11 @@ case class ISO8583(
     transactionCurrency: Option[TransactionCurrency49],
     billingCurrency: Option[BillingCurrency51],
     securityInformation: Option[SecurityInformation53],
-    additionalAmounts: Option[AdditionalAmounts54]
+    additionalAmounts: Option[AdditionalAmounts54],
+    chipData: Option[ChipData55],
+    macAuthentificationData64: Option[MacAuthentificationData64],
+    originalDataElements90: Option[OriginalDataElements90],
+    replacementAmount95: Option[ReplacementAmount95]
 ) {
 
   private val localDateFormatter = DateTimeFormatter.ofPattern("MM/dd")
@@ -58,34 +66,41 @@ case class ISO8583(
   override def toString: String =
     f"""
        |FIELDS : ${fields.filter(_._2).keys.toList.sorted}
-       |MSG TYPE: ${msgType}
-       |PAN: ${pan}
+       |MSG TYPE: $msgType
+       |PAN: $pan
        |TYPE: ${`type`}
-       |ORIGINAL AMOUNT: ${originalAmount}
-       |AMOUNT: ${amount}
-       |TIME: ${time}
-       |CONVERSION RATE: ${conversionRate}
-       |AUDIT NB: ${auditNb}
-       |LOCAL TIME: ${localTime}
+       |ORIGINAL AMOUNT: $originalAmount
+       |AMOUNT: $amount
+       |TIME: $time
+       |CONVERSION RATE: $conversionRate
+       |AUDIT NB: $auditNb
+       |LOCAL TIME: $localTime
        |LOCAL DATE: ${localDate.map(_.format(localDateFormatter))}
-       |CARD EXPIRATION DATE: ${cardExpirationDate}
-       |RECONCILIATION DATE: ${reconciliationDate}
-       |MCC: ${mcc}
-       |READING MODE: ${readingMode}
-       |PAN SEQUENCE NB: ${panSequenceNumber}
-       |POS CONDITION CODE: ${posConditionCode}
-       |ACQUIRING ID: ${acquiringId}
-       |RETRIEVAL REFERENCE NB: ${retrievalRefNb}
-       |AUTHORIZATION NB: ${authorizationNb}
-       |RESPONSE CODE: ${responseCode}
-       |TERMINAL ID: ${terminalId}
-       |ACCEPTOR ID: ${acceptorId}
-       |ACCEPTOR NAME AND ADDRESS: ${acceptorNameAddress}
-       |ADVICE DETAILS: ${adviceAdditionalData}
-       |WALLET DATA INFO: ${walletDataInfos}
-       |TRANSACTION CURRENCY: ${transactionCurrency}
-       |BILLING CURRENCY: ${billingCurrency}
-       |SECURITY INFORMATION: ${securityInformation}
+       |CARD EXPIRATION DATE: $cardExpirationDate
+       |RECONCILIATION DATE: $reconciliationDate
+       |MCC: $mcc
+       |READING MODE: $readingMode
+       |PAN SEQUENCE NB: $panSequenceNumber
+       |POS CONDITION CODE: $posConditionCode
+       |ACQUIRING ID: $acquiringId
+       |RETRIEVAL REFERENCE NB: $retrievalRefNb
+       |AUTHORIZATION NB: $authorizationNb
+       |RESPONSE CODE: $responseCode
+       |TERMINAL ID: $terminalId
+       |ACCEPTOR ID: $acceptorId
+       |ACCEPTOR NAME AND ADDRESS: $acceptorNameAddress
+       |ADVICE DETAILS: $adviceAdditionalData
+       |WALLET DATA INFO: $walletDataInfos
+       |ADDITIONAL DATA: $additionalData
+       |PRIVATE DATA: $privateData
+       |TRANSACTION CURRENCY: $transactionCurrency
+       |BILLING CURRENCY: $billingCurrency
+       |SECURITY INFORMATION: $securityInformation
+       |ADDITIONAL AMOUNTS: $additionalAmounts
+       |CHIP DATA: $chipData
+       |MAC AUTH DATA: $macAuthentificationData64
+       |ORIGINAL DATA ELEMENTS: $originalDataElements90
+       |REPLACEMENT AMOUNT: $replacementAmount95
        |""".stripMargin
 
 }

@@ -1,6 +1,6 @@
 package codec.types.field47
 
-import codec.FieldCodecs.N
+import codec.FieldCodecs.{LLVAR, N}
 import codec.types.field47.types.IssuerBankCode4701
 import scodec.Codec
 import scodec.codecs.*
@@ -16,12 +16,12 @@ object AdditionalData47 {
       .by(N(2))
       .typecase("01", "IssuerBankCode01" | IssuerBankCode4701.codec)
 
-  val codec: Codec[AdditionalData47] = list(subFieldCodec).xmap(
+  val codec: Codec[AdditionalData47] = LLVAR(list(subFieldCodec).xmap(
     fields =>
       AdditionalData47(
         fields.collectFirst { case t: IssuerBankCode4701 => t }
       ),
     ad => List.concat(ad.issuerBankCode01)
-  )
+  ))
 
 }

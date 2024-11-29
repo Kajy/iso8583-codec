@@ -14,7 +14,7 @@ case class AdviceDetail44(
 
 object AdviceDetail44 {
 
-  val codec: Codec[AdviceDetail44] = list(TLV(AN(2), AN_INT(2), AN))
+  val codec: Codec[AdviceDetail44] = LLVAR(list(TLV(AN(2), AN_INT(2), AN)))
     .xmap(
       fields => {
         val RA = fields.find(_._1 == "RA").map(_._2)
