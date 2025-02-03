@@ -17,8 +17,10 @@ object BitMap {
           (bitMap2Opt.getOrElse(Nil) ++ bitMap1).toMap
         },
         c => {
-          val bitMap1 = c.filter(_._1 <= 64).values
-          val bitMap2 = c.filter(_._1 > 64).values
+          val listMap = c.toList.sortBy(_._1)
+          val bitMap1 = listMap.filter(_._1 <= 64).map(_._2)
+          val bitMap2 = listMap.filter(_._1 > 64).map(_._2)
+
           BitVector.bits(bitMap1) -> Option.when(bitMap2.nonEmpty)(
             BitVector.bits(bitMap2)
           )

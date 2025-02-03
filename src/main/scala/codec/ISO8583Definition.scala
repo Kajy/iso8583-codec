@@ -71,4 +71,5 @@ object ISO8583Definition {
   val MAC_AUTH_DATA          = "Mac authentification data" | MacAuthentificationData64.codec
   val ORIGINAL_DATA_ELEMENTS = "Original Data Elements" | OriginalDataElements90.codec
   val REPLACEMENT_AMOUNT       = "Replacement amount" | ReplacementAmount95.codec
+  val MAC_AUTH_DATA_2       = "Replacement amount" | MacAuthentificationData64.codec
 }

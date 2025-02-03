@@ -58,7 +58,8 @@ case class ISO8583(
     chipData: Option[ChipData55],
     macAuthentificationData64: Option[MacAuthentificationData64],
     originalDataElements90: Option[OriginalDataElements90],
-    replacementAmount95: Option[ReplacementAmount95]
+    replacementAmount95: Option[ReplacementAmount95],
+    macAuthentificationData128: Option[MacAuthentificationData64]
 ) {
 
   private val localDateFormatter = DateTimeFormatter.ofPattern("MM/dd")

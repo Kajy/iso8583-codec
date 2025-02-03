@@ -50,7 +50,8 @@ object ISO8583Codec {
           conditional(fields.isPresent(55), CHIP_DATA) ::
           conditional(fields.isPresent(64), MAC_AUTH_DATA) ::
           conditional(fields.isPresent(90), ORIGINAL_DATA_ELEMENTS) ::
-          conditional(fields.isPresent(95), REPLACEMENT_AMOUNT)
+          conditional(fields.isPresent(95), REPLACEMENT_AMOUNT) ::
+          conditional(fields.isPresent(128), MAC_AUTH_DATA_2)
 
       })).as[ISO8583]
 
